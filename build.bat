@@ -3,4 +3,4 @@
 :Build
 cls
 
-powershell.exe ./build.ps1
+powershell.exe ./build.ps1 %*
