@@ -273,6 +273,7 @@ Task("Run-Unit-Tests")
 
 Task ("Package")
     .IsDependentOn("Run-Unit-Tests")
+    .IsDependentOn("GitLink")
     .Does (() =>
 {
     // TODO: DNC support
@@ -299,7 +300,6 @@ Task ("Package")
 });
 
 Task("DeployNuget")
-    .IsDependentOn("Run-Unit-Tests")
     .IsDependentOn("Package")
     .Does(() =>
 {
@@ -321,7 +321,6 @@ Task("DeployNuget")
 ///////////////////////////////////////////////////////////////////////////////
 
 Task("Default")
-    .IsDependentOn("Run-Unit-Tests")
     .IsDependentOn("Package");
 
 
