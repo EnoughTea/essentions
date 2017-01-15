@@ -55,8 +55,8 @@ Initial release.
 Personal library with extension methods for built-in types, and some other useful stuff.
     </summary>
     <language>en-US</language>
-    <projectUrl>http://github.com/enoughtea/essentions</projectUrl>
-    <iconUrl>http://github.com/enoughtea/essentions/icon.png</iconUrl>
+    <projectUrl>https://github.com/enoughtea/essentions</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/EnoughTea/essentions/master/icon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <copyright>$copyright$</copyright>
