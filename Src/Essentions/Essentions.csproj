@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CBE0CE30-381A-4373-8B83-EFCD0411D158}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Essentions</RootNamespace>
+    <AssemblyName>Essentions</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <CodeContractsAssemblyMode>0</CodeContractsAssemblyMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <BaseIntermediateOutputPath>..\..\Build\Obj</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)\$(Configuration)\</IntermediateOutputPath>
+    <OutputPath>..\..\Build\Debug\EssentionsPortable\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <BaseIntermediateOutputPath>..\..\Build\Obj</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)\$(Configuration)\</IntermediateOutputPath>
+    <OutputPath>..\..\Build\Release\EssentionsPortable\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Build\Release\EssentionsPortable\Essentions.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>CS1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ArrayExtensions.cs" />
+    <Compile Include="AssemblyExtensions.cs" />
+    <Compile Include="CheckContinue.cs" />
+    <Compile Include="ByteArrayExtensions.cs" />
+    <Compile Include="CollectionExtensions.cs" />
+    <Compile Include="Collections\ListWithEvents.cs" />
+    <Compile Include="Collections\RequestReturnPool.cs" />
+    <Compile Include="Collections\RequestReclaimPool.cs" />
+    <Compile Include="Components\Disposable.cs" />
+    <Compile Include="Tools\NullCheck.cs" />
+    <Compile Include="Components\Range.cs" />
+    <Compile Include="Components\RangeExtensions.cs" />
+    <Compile Include="Components\Ranges.cs" />
+    <Compile Include="Components\RangeWithValue.cs" />
+    <Compile Include="Components\RefCounter.cs" />
+    <Compile Include="Collections\WeakValueDictionary.cs" />
+    <Compile Include="Components\XorShiftRandom.cs" />
+    <Compile Include="DateTimeExtensions.cs" />
+    <Compile Include="DelegateExtensions.cs" />
+    <Compile Include="DictionaryExtensions.cs" />
+    <Compile Include="DoubleExtensions.cs" />
+    <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="FloatExtensions.cs" />
+    <Compile Include="FunctionExtensions.cs" />
+    <Compile Include="Check.cs" />
+    <Compile Include="ComparerExtensions.cs" />
+    <Compile Include="LongExtensions.cs" />
+    <Compile Include="StringBuilderExtensions.cs" />
+    <Compile Include="Tools\Ease.cs" />
+    <Compile Include="Tools\Math.cs" />
+    <Compile Include="Tools\Values.cs" />
+    <Compile Include="Tools\Change.cs" />
+    <Compile Include="Tools\Reflection.cs" />
+    <Compile Include="IntExtensions.cs" />
+    <Compile Include="ListExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomExtensions.cs" />
+    <Compile Include="StreamExtensions.cs" />
+    <Compile Include="StreamReaderExtensions.cs" />
+    <Compile Include="StringExtensions.cs" />
+    <Compile Include="TypeExtensions.cs" />
+    <Compile Include="WeakReferenceExtensions.cs" />
+    <Compile Include="XmlReaderExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Essentions.nuspec">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="project.json" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
