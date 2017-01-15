@@ -16,4 +16,4 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyFileVersion("1.0.1.0")]
 [assembly: CLSCompliant(true)]
 [assembly: InternalsVisibleTo("Essentions.Tests")]
-[assembly: AssemblyInformationalVersion("1.0.1+4.Branch.master.Sha.cf4d1b09b30b2c8012e00f3273be0464b753e2c6")]
+[assembly: AssemblyInformationalVersion("1.0.1+5.Branch.master.Sha.0ca2585f2063577e90655e982434fffef86c716e")]
