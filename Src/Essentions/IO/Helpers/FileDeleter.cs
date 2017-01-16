@@ -47,9 +47,9 @@ namespace Essentions.IO
             }
         }
 
-        /// <exception cref="ArgumentNullException"><paramref name="env"/> or <paramref name="filePaths"/>
+        /// <exception cref="ArgumentNullException"><paramref name="env"/> or <paramref name="filePath"/>
         ///  is <see langword="null"/></exception>
-        /// <exception cref="FileNotFoundException">The file <see cref="filePath"/> does not exist.</exception>
+        /// <exception cref="FileNotFoundException">The file <paramref name="filePath"/> does not exist.</exception>
         /// <exception cref="InvalidOperationException">Cannot delete files when <paramref name="env.FS"/> is null.
         /// </exception>
         public static void DeleteFile(IFileSystemEnvironment env, FilePath filePath)
