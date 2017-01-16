@@ -11,10 +11,17 @@ You probably would be better off if you built your own helper lib.
 
 ## What is inside?
 
+### Portable file system abstraction
+
+Cake (http://cakebuild.net) build tool has a nice file system abstraction; sadly, it does not work with PCL.
+
+I really wanted to use it in portable class libraries without hassle, so almost all of `Cake.IO` was ripped and key classes were reworked with a small number of breaking API changes.
+
+
 ### Collections
 
 * Standard generic list with events before and after all modifications with ability to cancel and separate handling of batch additions/removals.
-* Two simple pools: 
+* Two simple pools:
   * typical "take instance out of the pool, put it back after you done";
   * less standard "owning" pool, which tracks provided instances and returns them back to pool when they become unused, as defined by user callback.
 * Dictionary with weak-referenced values. Null values are supported.
@@ -48,5 +55,5 @@ You probably would be better off if you built your own helper lib.
 
 ### License
 
-It's MIT. We are all standing on the shoulders of giants, so there are few pieces of code from other libraries, 
+It's MIT. We are all standing on the shoulders of giants, so there are few pieces of code from other libraries (and a giant chunk of code from Cake), 
 all under MIT or Apache license.

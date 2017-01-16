@@ -1,0 +1,52 @@
+﻿using System;
+using System.Linq;
+
+namespace Essentions.IO
+{
+    internal static class RelativePathResolver
+    {
+        /// <exception cref="ArgumentNullException"><paramref name="from"/> or <paramref name="to"/> is <see langword="null"/></exception>
+        /// <exception cref="InvalidOperationException">Target path must be an absolute path. -or-
+        ///  Source path must be an absolute path. -or- Paths must share a common prefix.</exception>
+        public static DirectoryPath Resolve(DirectoryPath from, DirectoryPath to)
+        {
+            if (from == null) {
+                throw new ArgumentNullException(nameof(@from));
+            }
+            if (to == null) {
+                throw new ArgumentNullException(nameof(to));
+            }
+            if (to.IsRelative) {
+                throw new InvalidOperationException("Target path must be an absolute path.");
+            }
+            if (from.IsRelative) {
+                throw new InvalidOperationException("Source path must be an absolute path.");
+            }
+            if (from.Segments[0] != to.Segments[0]) {
+                throw new InvalidOperationException("Paths must share a common prefix.");
+            }
+
+            if (string.CompareOrdinal(from.FullPath, to.FullPath) == 0) {
+                return new DirectoryPath(".");
+            }
+
+            var minimumSegmentsLength = Math.Min(from.Segments.Length, to.Segments.Length);
+            var numberOfSharedSegments = 1;
+
+            for (var i = 1; i < minimumSegmentsLength; i++) {
+                if (string.CompareOrdinal(from.Segments[i], to.Segments[i]) != 0) {
+                    break;
+                }
+
+                numberOfSharedSegments++;
+            }
+
+            var fromSegments = Enumerable.Repeat("..", from.Segments.Length - numberOfSharedSegments);
+            var toSegments = to.Segments.Skip(numberOfSharedSegments);
+
+            var relativePath = System.IO.Path.Combine(fromSegments.Concat(toSegments).ToArray());
+
+            return new DirectoryPath(relativePath);
+        }
+    }
+}

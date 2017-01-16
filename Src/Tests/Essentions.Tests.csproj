@@ -72,6 +72,25 @@
     <Compile Include="EnumerableExtensionsTests.cs" />
     <Compile Include="FloatExtensionsTests.cs" />
     <Compile Include="IntExtensionsTests.cs" />
+    <Compile Include="IO\AssertEx.cs" />
+    <Compile Include="IO\DirectoryPathCollectionTests.cs" />
+    <Compile Include="IO\DirectoryPathTests.cs" />
+    <Compile Include="IO\Fakes\FakeDirectory.cs" />
+    <Compile Include="IO\Fakes\FakeDirectoryContent.cs" />
+    <Compile Include="IO\Fakes\FakeEnvironment.cs" />
+    <Compile Include="IO\Fakes\FakeFile.cs" />
+    <Compile Include="IO\Fakes\FakeFileStream.cs" />
+    <Compile Include="IO\Fakes\FakeFileSystem.cs" />
+    <Compile Include="IO\Fakes\FakeFileSystemTree.cs" />
+    <Compile Include="IO\FileExtensionsTests.cs" />
+    <Compile Include="IO\FilePathTests.cs" />
+    <Compile Include="IO\StandardImplementationExampleTests.cs" />
+    <Compile Include="IO\FileSystemExtensionsTest.cs" />
+    <Compile Include="IO\GlobberFixture.cs" />
+    <Compile Include="IO\GlobberTests.cs" />
+    <Compile Include="IO\PathCollapserTests.cs" />
+    <Compile Include="IO\PathComparerTests.cs" />
+    <Compile Include="IO\PathTests.cs" />
     <Compile Include="ListExtensionsTests.cs" />
     <Compile Include="LongExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,6 +113,9 @@
       <Project>{cbe0ce30-381a-4373-8b83-efcd0411d158}</Project>
       <Name>Essentions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IO\LICENSE.txt" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -53,6 +53,59 @@
     <Compile Include="Collections\RequestReturnPool.cs" />
     <Compile Include="Collections\RequestReclaimPool.cs" />
     <Compile Include="Components\Disposable.cs" />
+    <Compile Include="IO\ConvertableDirectoryPath.cs" />
+    <Compile Include="IO\ConvertableFilePath.cs" />
+    <Compile Include="IO\DirectoryPathCollection.cs" />
+    <Compile Include="IO\FileExtensions.cs" />
+    <Compile Include="IO\FileSystemEnvironmentGlobbingExtensions.cs" />
+    <Compile Include="IO\Helpers\FileMover.cs" />
+    <Compile Include="IO\Globber.cs" />
+    <Compile Include="IO\GlobberExtensions.cs" />
+    <Compile Include="IO\Helpers\FileDeleter.cs" />
+    <Compile Include="IO\Helpers\FileCopier.cs" />
+    <Compile Include="IO\FileSystemEnvironmentDirectoryExtensions.cs" />
+    <Compile Include="IO\FileSystemEnvironmentFileExtensions.cs" />
+    <Compile Include="IO\FileSystemExtensions.cs" />
+    <Compile Include="IO\Globbing\GlobNode.cs" />
+    <Compile Include="IO\Globbing\GlobNodeRewriter.cs" />
+    <Compile Include="IO\Globbing\GlobNodeValidator.cs" />
+    <Compile Include="IO\Globbing\GlobParser.cs" />
+    <Compile Include="IO\Globbing\GlobParserContext.cs" />
+    <Compile Include="IO\Globbing\GlobToken.cs" />
+    <Compile Include="IO\Globbing\GlobTokenizer.cs" />
+    <Compile Include="IO\Globbing\GlobTokenKind.cs" />
+    <Compile Include="IO\Globbing\GlobVisitor.cs" />
+    <Compile Include="IO\Globbing\GlobVisitorContext.cs" />
+    <Compile Include="IO\Globbing\Nodes\MatchableNode.cs" />
+    <Compile Include="IO\Globbing\Nodes\ParentSegment.cs" />
+    <Compile Include="IO\Globbing\Nodes\PathSegment.cs" />
+    <Compile Include="IO\Globbing\Nodes\RecursiveWildcardSegment.cs" />
+    <Compile Include="IO\Globbing\Nodes\RelativeRoot.cs" />
+    <Compile Include="IO\Globbing\Nodes\UnixRoot.cs" />
+    <Compile Include="IO\Globbing\Nodes\WildcardSegment.cs" />
+    <Compile Include="IO\Globbing\Nodes\WindowsRoot.cs" />
+    <Compile Include="IO\Helpers\DirectoryCreator.cs" />
+    <Compile Include="IO\Helpers\DirectoryDeleter.cs" />
+    <Compile Include="IO\Helpers\DirectoryCleaner.cs" />
+    <Compile Include="IO\FileAccess.cs" />
+    <Compile Include="IO\FileMode.cs" />
+    <Compile Include="IO\FilePathCollection.cs" />
+    <Compile Include="IO\FileShare.cs" />
+    <Compile Include="IO\IDirectory.cs" />
+    <Compile Include="IO\IFile.cs" />
+    <Compile Include="IO\IFileSystem.cs" />
+    <Compile Include="IO\IFileSystemInfo.cs" />
+    <Compile Include="IO\IFileSystemEnvironment.cs" />
+    <Compile Include="IO\DirectoryPath.cs" />
+    <Compile Include="IO\FilePath.cs" />
+    <Compile Include="IO\IGlobber.cs" />
+    <Compile Include="IO\Machine.cs" />
+    <Compile Include="IO\Path.cs" />
+    <Compile Include="IO\Helpers\PathCollapser.cs" />
+    <Compile Include="IO\PathComparer.cs" />
+    <Compile Include="IO\Helpers\RelativePathResolver.cs" />
+    <Compile Include="IO\SearchScope.cs" />
+    <Compile Include="IO\SpecialPath.cs" />
     <Compile Include="Tools\NullCheck.cs" />
     <Compile Include="Components\Range.cs" />
     <Compile Include="Components\RangeExtensions.cs" />
@@ -93,6 +146,10 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IO\I really wish Cake IO were portable by default.txt" />
+    <Content Include="IO\LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

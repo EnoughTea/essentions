@@ -1,0 +1,59 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Essentions.IO
+{
+    /// <summary>
+    /// Contains extensions for <see cref="IGlobber"/>.
+    /// </summary>
+    public static class GlobberExtensions
+    {
+        /// <summary>
+        /// Gets all files matching the specified pattern.
+        /// </summary>
+        /// <param name="globber">The globber.</param>
+        /// <param name="pattern">The pattern.</param>
+        /// <returns>The files matching the specified pattern.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="globber"/> is <see langword="null"/></exception>
+        public static IEnumerable<FilePath> GetFiles(this IGlobber globber, string pattern)
+        {
+            if (globber == null) {
+                throw new ArgumentNullException(nameof(globber));
+            }
+            return globber.Match(pattern).OfType<FilePath>();
+        }
+
+        /// <summary>
+        /// Gets all directories matching the specified pattern.
+        /// </summary>
+        /// <param name="globber">The globber.</param>
+        /// <param name="pattern">The pattern.</param>
+        /// <returns>The directories matching the specified pattern.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="globber"/> is <see langword="null"/></exception>
+        public static IEnumerable<DirectoryPath> GetDirectories(this IGlobber globber, string pattern)
+        {
+            if (globber == null) {
+                throw new ArgumentNullException(nameof(globber));
+            }
+            return globber.Match(pattern).OfType<DirectoryPath>();
+        }
+
+        /// <summary>
+        /// Returns <see cref="Path" /> instances matching the specified pattern.
+        /// </summary>
+        /// <param name="globber">The globber.</param>
+        /// <param name="pattern">The pattern to match.</param>
+        /// <returns>
+        ///   <see cref="Path" /> instances matching the specified pattern.
+        /// </returns>
+        /// <exception cref="ArgumentNullException"><paramref name="globber"/> is <see langword="null"/></exception>
+        public static IEnumerable<Path> Match(this IGlobber globber, string pattern)
+        {
+            if (globber == null) {
+                throw new ArgumentNullException(nameof(globber));
+            }
+            return globber.Match(pattern, null);
+        }
+    }
+}
