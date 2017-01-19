@@ -162,52 +162,31 @@ namespace Essentions.Tests.IO
 
         public sealed class FileSystemEnvironment : IFileSystemEnvironment
         {
-            public IFileSystem FS { get; set; }
-
-            public IGlobber Globber { get; set; }
-
-            /// <summary>
-            /// Gets whether or not the current operative system is 64 bit.
-            /// </summary>
-            /// <returns>
-            /// Whether or not the current operative system is 64 bit.
-            /// </returns>
-            public bool Is64BitOS()
-            {
-                return Machine.Is64BitOS();
-            }
-
-            /// <summary>
-            /// Determines whether the current machine is running Unix.
-            /// </summary>
-            /// <returns>
-            /// Whether or not the current machine is running Unix.
-            /// </returns>
-            public bool IsUnix()
-            {
-                return Machine.IsUnix();
-            }
-
-            /// <summary>
-            /// Gets or sets the working directory.
-            /// </summary>
-            /// <value>
-            /// The working directory.
-            /// </value>
-            public DirectoryPath WorkingDirectory
-            {
-                get { return System.IO.Directory.GetCurrentDirectory(); }
-                set { SetWorkingDirectory(value); }
-            }
-
-            /// <summary>
-            /// Initializes a new instance of the <see cref="FileSystemEnvironment"/> class.
-            /// </summary>
+            /// <summary>Initializes a new instance of the <see cref="FileSystemEnvironment"/> class.</summary>
             public FileSystemEnvironment()
             {
                 Globber = new Globber(this);
                 FS = new FileSystem();
                 WorkingDirectory = new DirectoryPath(System.IO.Directory.GetCurrentDirectory());
+            }
+
+            /// <summary>Gets the application root path.</summary>
+            /// <value>The application root path.</value>
+            public DirectoryPath ApplicationRoot => new DirectoryPath(
+                System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+
+            /// <summary>Gets the file system.</summary>
+            public IFileSystem FS { get; set; }
+
+            /// <summary>Gets the globber.</summary>
+            public IGlobber Globber { get; set; }
+
+            /// <summary>Gets or sets the working directory.</summary>
+            /// <value>The working directory.</value>
+            public DirectoryPath WorkingDirectory
+            {
+                get { return System.IO.Directory.GetCurrentDirectory(); }
+                set { SetWorkingDirectory(value); }
             }
 
             /// <exception cref="NotSupportedException">The special path <paramref name="path"/> is not supported.
@@ -234,16 +213,21 @@ namespace Essentions.Tests.IO
                 throw new NotSupportedException($"The special path '{path}' is not supported.");
             }
 
-            /// <summary>
-            /// Gets the application root path.
-            /// </summary>
+            /// <summary>Gets whether or not the current operative system is 64 bit.</summary>
             /// <returns>
-            /// The application root path.
+            /// Whether or not the current operative system is 64 bit.
             /// </returns>
-            public DirectoryPath GetApplicationRoot()
+            public bool Is64BitOS()
             {
-                var path = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                return new DirectoryPath(path);
+                return Environment.Is64BitProcess;
+            }
+
+            /// <summary>Determines whether the current machine is running Unix.</summary>
+            /// <returns>Whether or not the current machine is running Unix.</returns>
+            public bool IsUnix()
+            {
+                var platform = (int)Environment.OSVersion.Platform;
+                return (platform == 4) || (platform == 6) || (platform == 128);
             }
 
             private static void SetWorkingDirectory(DirectoryPath path)

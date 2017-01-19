@@ -14,7 +14,6 @@ namespace Essentions.Tests.IO
         private readonly bool _isUnix;
         private readonly Dictionary<string, string> _environmentVariables;
         private readonly Dictionary<SpecialPath, DirectoryPath> _specialPaths;
-        private DirectoryPath _applicationRoot;
         private bool _is64Bit;
         private FrameworkName _targetFramework;
 
@@ -126,13 +125,10 @@ namespace Essentions.Tests.IO
         /// <summary>
         /// Gets the application root path.
         /// </summary>
-        /// <returns>
+        /// <value>
         /// The application root path.
-        /// </returns>
-        public DirectoryPath GetApplicationRoot()
-        {
-            return _applicationRoot;
-        }
+        /// </value>
+        public DirectoryPath ApplicationRoot { get; private set; }
 
         /// <summary>
         /// Sets the application root path.
@@ -140,7 +136,7 @@ namespace Essentions.Tests.IO
         /// <param name="applicationRoot">The application root path.</param>
         public void SetApplicationRoot(DirectoryPath applicationRoot)
         {
-            _applicationRoot = applicationRoot;
+            ApplicationRoot = applicationRoot;
         }
 
         /// <summary>

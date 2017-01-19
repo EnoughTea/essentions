@@ -8,10 +8,6 @@ namespace Essentions.IO
     /// </summary>
     public sealed class PathComparer : IEqualityComparer<Path>
     {
-        /// <summary>The default path comparer.</summary>
-        private static readonly Lazy<PathComparer> _Default =
-            new Lazy<PathComparer>(() => new PathComparer(Machine.IsUnix()));
-
         /// <summary>
         /// Gets a value indicating whether comparison is case sensitive.
         /// </summary>
@@ -20,8 +16,11 @@ namespace Essentions.IO
         /// </value>
         public bool IsCaseSensitive { get; }
 
-        /// <summary>The default path comparer.</summary>
-        public static PathComparer Default => _Default.Value;
+        /// <summary>The case-sensitive path comparer.</summary>
+        public static PathComparer CaseSensitive { get; } = new PathComparer(true);
+
+        /// <summary>The case-insensitive path comparer.</summary>
+        public static PathComparer CaseInsensitive { get; } = new PathComparer(false);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PathComparer"/> class.

@@ -186,19 +186,4 @@ namespace Essentions.Tests.IO
             Assert.That(path.ToString(), Is.EqualTo("temp/hello"));
         }
     }
-
-    [SetUpFixture]
-    public class GlobalSetup
-    {
-        [OneTimeSetUp]
-        public void Init()
-        {
-            Machine.Init(() => Environment.Is64BitOperatingSystem,
-                         () => {
-                             var platform = (int)Environment.OSVersion.Platform;
-                             return (platform == 4) || (platform == 6) || (platform == 128);
-                         });
-
-        }
-    }
 }

@@ -157,22 +157,6 @@ namespace Essentions.Tests.IO
             }
         }
 
-        public sealed class TheDefaultProperty
-        {
-            [Test]
-            public void Should_Return_Correct_Comparer_Depending_On_Operative_System()
-            {
-                // Given
-                var expected = Machine.IsUnix();
-
-                // When
-                var instance = PathComparer.Default;
-
-                // Then
-                Assert.AreEqual(expected, instance.IsCaseSensitive);
-            }
-        }
-
         public sealed class TheIsCaseSensitiveProperty
         {
             [Test]

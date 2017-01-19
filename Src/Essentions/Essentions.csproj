@@ -99,7 +99,6 @@
     <Compile Include="IO\DirectoryPath.cs" />
     <Compile Include="IO\FilePath.cs" />
     <Compile Include="IO\IGlobber.cs" />
-    <Compile Include="IO\Machine.cs" />
     <Compile Include="IO\Path.cs" />
     <Compile Include="IO\Helpers\PathCollapser.cs" />
     <Compile Include="IO\PathComparer.cs" />
