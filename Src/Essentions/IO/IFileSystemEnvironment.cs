@@ -25,7 +25,7 @@
     ///         get { return System.IO.Directory.GetCurrentDirectory(); }
     ///         set { SetWorkingDirectory(value); }
     ///     }
-
+    ///
     ///     public DirectoryPath GetSpecialPath(SpecialPath path)
     ///     {
     ///         switch (path) {
@@ -67,6 +67,7 @@
     ///
     ///         System.IO.Directory.SetCurrentDirectory(path.FullPath);
     ///     }
+    /// }
     /// </code>
     /// </example>
     /// </remarks>
