@@ -26,6 +26,10 @@
     ///         set { SetWorkingDirectory(value); }
     ///     }
     ///
+    ///     public string[] GetLogicalDrives() {
+    ///         return System.IO.Directory.GetLogicalDrives();
+    ///     }
+    ///
     ///     public DirectoryPath GetSpecialPath(SpecialPath path)
     ///     {
     ///         switch (path) {
@@ -96,6 +100,11 @@
         /// <summary>Gets or sets the working directory.</summary>
         /// <value>The working directory.</value>
         DirectoryPath WorkingDirectory { get; set; }
+
+        /// <summary>Retrieves the names of the logical drives on this computer.</summary>
+        /// <remarks>Windows uses form like "&lt;drive letter&gt;:\".</remarks>
+        /// <returns>Names of the logical drives on this computer.</returns>
+        string[] GetLogicalDrives();
 
         /// <summary>Gets a special path.</summary>
         /// <param name="path">The path.</param>

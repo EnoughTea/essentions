@@ -189,6 +189,17 @@ namespace Essentions.Tests.IO
                 set { SetWorkingDirectory(value); }
             }
 
+            /// <summary>Retrieves the names of the logical drives on this computer.</summary>
+            /// <remarks>Windows uses form like "&lt;drive letter&gt;:\".</remarks>
+            /// <returns>Names of the logical drives on this computer.</returns>
+            /// <exception cref="IOException">An I/O error occured (for example, a disk error). </exception>
+            /// <exception cref="UnauthorizedAccessException">The caller does not have the required permission.
+            /// </exception>
+            public string[] GetLogicalDrives()
+            {
+                return System.IO.Directory.GetLogicalDrives();
+            }
+
             /// <exception cref="NotSupportedException">The special path <paramref name="path"/> is not supported.
             /// </exception>
             public DirectoryPath GetSpecialPath(SpecialPath path)

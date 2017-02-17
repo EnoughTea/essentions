@@ -112,6 +112,14 @@ namespace Essentions.Tests.IO
             throw new NotSupportedException(string.Format(CultureInfo.InvariantCulture, format, path));
         }
 
+        /// <summary>Retrieves the names of the logical drives on this computer.</summary>
+        /// <remarks>Windows uses form like "&lt;drive letter&gt;:\".</remarks>
+        /// <returns>Names of the logical drives on this computer.</returns>
+        public string[] GetLogicalDrives()
+        {
+            return new[] { "C:\\" };
+        }
+
         /// <summary>
         /// Sets a special path.
         /// </summary>
